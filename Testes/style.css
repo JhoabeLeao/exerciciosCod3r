@@ -1,0 +1,41 @@
+.fundo {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.calc {
+    border: 10px;
+    background-color: rgb(145, 145, 145);
+    height: 600px;
+    width: 500px;
+    margin-top: 100px;
+}
+
+
+
+
+/*
+
+.button { 
+    background-color: rgb(235, 26, 26);
+    width: 400px;
+    height: 400px;
+    margin-top: 200px;
+
+}
+
+.bt-zero {
+    background-color: rgb(84, 84, 84);
+    margin-top: 15px;
+    margin-left: 15px;
+    height: 70px;
+    width: 70px;
+}
+.button .bt-um {
+    background-color: rgb(84, 84, 84);
+    margin-top: px;
+    margin-left: 95px;
+    height: 70px;
+    width: 70px;
+}*/
