@@ -1,5 +1,7 @@
 //com promise..
 
+//Continuar a aula para prosseguir com o código
+
 const http = require('http')
 const { reject } = require('lodash')
 
