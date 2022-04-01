@@ -5,7 +5,7 @@
 const http = require('http')
 const { reject } = require('lodash')
 
-const getTurma = (letra, callback) => {
+const getTurma = letra => {
     const url = `http://files.cod3r.com.br/curso-js/turma${letra}.json`
     return new Promise((resolve, reject) => {
         http.get(url, res => {
@@ -16,20 +16,28 @@ const getTurma = (letra, callback) => {
             })
     
             res.on('end', () => {
-                callback(JSON.parse(resultado))
+                   try {
+                       resolve(JSON.parse(resultado))
+                   } catch(e){
+                       reject(e)
+                   }
             })
         })
     })
 }
 
 let nomes = []
-getTurma('A', alunos => {
+getTurma('A').then(alunos => {
     nomes = nomes.concat(alunos.map(a => `À: ${a.nome}`))
-    getTurma('B', alunos => {
+    getTurma('B').then(alunos => {
         nomes = nomes.concat(alunos.map(a => `B: ${a.nome}`))
-        getTurma('C', alunos => {
+        getTurma('C').then(alunos => {
             nomes = nomes.concat(alunos.map(a  => `C: ${a.nome}`))
             console.log(nomes)
         })
     })
 })
+
+
+Promise.all([getTurma('A'), getTurma('B'), getTurma('C')])
+    .then(x => console.log(x))
